@@ -6,8 +6,10 @@ jobs:
         steps:
             - uses: actions/checkout@v5
             - run: docker compose build proj-amd
+            - run: docker compose run proj-amd sh /usr/local/bin/command.sh
     build-arm:
         runs-on: ubuntu-24.04-arm
         steps:
             - uses: actions/checkout@v5
             - run: docker compose build proj-arm
+            - run: docker compose run proj-arm sh /usr/local/bin/command.sh
