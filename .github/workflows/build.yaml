@@ -1,0 +1,11 @@
+name: Build
+on: [push]
+jobs:
+  build-amd:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: docker compose build proj-amd
+  build-arm:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - run: docker compose build proj-arm

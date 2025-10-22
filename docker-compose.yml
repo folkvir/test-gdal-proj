@@ -1,0 +1,26 @@
+services:
+  proj-amd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILDPLATFORM: linux/amd64
+    volumes:
+      - build-amd:/proj/build
+      - ./src/projections/merc.cpp:/proj/src/projections/merc.cpp
+      - ./command.sh:/usr/local/bin/command.sh
+  
+  proj-arm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUILDPLATFORM: linux/arm64
+    volumes:
+      - build-arm:/proj/build
+      - ./src/projections/merc.cpp:/proj/src/projections/merc.cpp
+      - ./command.sh:/usr/local/bin/command.sh
+
+volumes:
+  build-amd:
+  build-arm:
