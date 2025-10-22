@@ -1,11 +1,13 @@
 name: Build
 on: [push]
 jobs:
-  build-amd:
-    runs-on: ubuntu-24.04
-    steps:
-      - run: docker compose build proj-amd
-  build-arm:
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - run: docker compose build proj-arm
+    build-amd:
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v5
+            - run: docker compose build proj-amd
+    build-arm:
+        runs-on: ubuntu-24.04-arm
+        steps:
+            - uses: actions/checkout@v5
+            - run: docker compose build proj-arm
